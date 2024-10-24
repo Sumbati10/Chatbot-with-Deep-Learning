@@ -24,6 +24,56 @@
             <p>Interact with our advanced chatbot to explore deep learning capabilities!</p>
             <img src="{{ url_for('static', filename='images/lindah.jpg') }}" alt="Image of Lindah" class="large-image">
         </section>
+
+        <!-- Chatbot interaction section -->
+        <section class="chatbot-container">
+            <h3>Chat with Our AI</h3>
+            <div id="chatbox">
+                <!-- Messages will be displayed here -->
+                <div id="messages"></div>
+            </div>
+
+            <!-- Chat input form -->
+            <form id="chat-form" action="{{ url_for('chat') }}" method="post">
+                <input type="text" id="user-input" name="message" placeholder="Type your message here..." autocomplete="off" required>
+                <button type="submit">Send</button>
+            </form>
+        </section>
     </main>
+
+    <script>
+        // Optional: Add JavaScript for handling chat submission without page refresh (AJAX)
+        const form = document.getElementById('chat-form');
+        form.addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the default form submission
+
+            const userInput = document.getElementById('user-input').value;
+            const messages = document.getElementById('messages');
+
+            // Add the user's message to the chatbox
+            const userMessage = document.createElement('p');
+            userMessage.textContent = "You: " + userInput;
+            messages.appendChild(userMessage);
+
+            // Send the message to the server via AJAX
+            fetch(form.action, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ message: userInput }),
+            })
+            .then(response => response.json())
+            .then(data => {
+                // Add the chatbot's response to the chatbox
+                const botMessage = document.createElement('p');
+                botMessage.textContent = "Bot: " + data.response;
+                messages.appendChild(botMessage);
+
+                // Clear the input field
+                document.getElementById('user-input').value = '';
+            });
+        });
+    </script>
 </body>
 </html>

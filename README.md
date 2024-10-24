@@ -1,6 +1,6 @@
 # Chatbot-with-Deep-Learning
 
-[![Demo Video](https://github.com/Sumbati10/Chatbot-with-Deep-Learning/blob/main/Recording%202024-10-24%20205542.gif)
+[![Demo Video](https://github.com/Sumbati10/Chatbot-with-Deep-Learning/blob/main/Recording%202024-10-24%20205542%20(1).gif)
 
 ## Chatbot Deep Learning Interface
 

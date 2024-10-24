@@ -1,41 +1,59 @@
+/* Apply light blue background color to the whole page */
 body {
+    background-color: #E0F7FA; /* Light blue */
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
 }
 
-.chat-container {
-    width: 300px;
-    margin: 50px auto;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-#chat-box {
-    height: 200px;
-    overflow-y: scroll;
-    border: 1px solid #ccc;
-    padding: 10px;
-    margin-bottom: 10px;
-}
-
-input[type="text"] {
-    width: 70%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-button {
-    padding: 10px;
-    border: none;
-    background-color: #28a745;
+/* Style the header with logo and title */
+header {
+    background-color: #039BE5; /* A darker shade of blue for the header */
     color: white;
-    border-radius: 5px;
-    cursor: pointer;
+    padding: 20px;
+    text-align: center;
 }
 
-button:hover {
-    background-color: #218838;
+.logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-right: 20px;
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin: 0;
+}
+
+/* Style the main content */
+main {
+    padding: 40px;
+    text-align: center;
+}
+
+h2 {
+    color: #0277BD; /* Slightly darker blue */
+    font-size: 2rem;
+}
+
+p {
+    font-size: 1.2rem;
+    color: #555; /* Gray for text */
+}
+
+/* Style the large image */
+.large-image {
+    width: 400px; /* Adjust the size as needed */
+    height: auto;
+    display: block;
+    margin: 20px auto; /* Center the image */
+    border: 5px solid #0277BD; /* Add a border for styling */
+    border-radius: 10px; /* Optional: Add rounded corners */
 }

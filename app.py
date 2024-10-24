@@ -24,9 +24,9 @@ def home():
     return render_template('index.html')
 
 # Chatbot response route
-@app.route('/get', methods=['GET', 'POST'])
-def get_bot_response():
-    user_input = request.args.get('msg')
+@app.route('/chat', methods=['POST'])
+def chat():
+    user_input = request.json.get('message')  # Extract user input from JSON
     
     # Process the input
     max_len = 20
@@ -34,11 +34,13 @@ def get_bot_response():
                                              truncating='post', maxlen=max_len))
     tag = lbl_encoder.inverse_transform([np.argmax(result)])[0]
 
+    # Find the response corresponding to the tag
     for intent in data['intents']:
         if intent['tag'] == tag:
-            return np.random.choice(intent['responses'])
-    
-    return "Sorry, I didn't understand that."
+            return jsonify({'response': np.random.choice(intent['responses'])})
+
+    return jsonify({'response': "Sorry, I didn't understand that."})
 
 if __name__ == '__main__':
     app.run(debug=True)
+

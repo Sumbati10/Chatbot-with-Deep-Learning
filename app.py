@@ -1,43 +1,44 @@
-from flask import Flask, request, jsonify, render_template
+from flask import Flask, render_template, request, jsonify
+import json
 import numpy as np
-import tensorflow as tf
 from tensorflow import keras
 import pickle
 
 app = Flask(__name__)
 
-# Load your model and tokenizer
-model = keras.models.load_model('model/chat_model.keras')  # Adjust path as needed
+# Load trained model and tokenizer
+model = keras.models.load_model('chat_model.keras')
 
-# Load the tokenizer
-with open('model/tokenizer.pickle', 'rb') as handle:
+with open('tokenizer.pickle', 'rb') as handle:
     tokenizer = pickle.load(handle)
 
-# Load the label encoder
-with open('model/label_encoder.pickle', 'rb') as ecn_file:
-    lbl_encoder = pickle.load(ecn_file)
+with open('label_encoder.pickle', 'rb') as enc:
+    lbl_encoder = pickle.load(enc)
 
+with open("intents.json") as file:
+    data = json.load(file)
+
+# Home route
 @app.route('/')
-def index():
+def home():
     return render_template('index.html')
 
-@app.route('/predict', methods=['POST'])
-def predict():
-    user_input = request.form['message']
+# Chatbot response route
+@app.route('/get', methods=['GET', 'POST'])
+def get_bot_response():
+    user_input = request.args.get('msg')
     
-    # Preprocess the input
-    sequences = tokenizer.texts_to_sequences([user_input])
-    padded_sequences = tf.keras.preprocessing.sequence.pad_sequences(sequences, maxlen=100)
+    # Process the input
+    max_len = 20
+    result = model.predict(keras.preprocessing.sequence.pad_sequences(tokenizer.texts_to_sequences([user_input]), 
+                                             truncating='post', maxlen=max_len))
+    tag = lbl_encoder.inverse_transform([np.argmax(result)])[0]
 
-    # Get prediction from the model
-    prediction = model.predict(padded_sequences)
+    for intent in data['intents']:
+        if intent['tag'] == tag:
+            return np.random.choice(intent['responses'])
     
-    # Decode the prediction
-    response_index = np.argmax(prediction)
-    response = lbl_encoder.inverse_transform([response_index])[0]
-    
-    return jsonify(response=response)
+    return "Sorry, I didn't understand that."
 
 if __name__ == '__main__':
     app.run(debug=True)
-

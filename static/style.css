@@ -32,51 +32,26 @@ h1 {
     margin: 0;
 }
 
-/* Style the main content */
-main {
-    padding: 40px;
-    text-align: center;
-}
-
-h2 {
-    color: #0277BD; /* Slightly darker blue */
-    font-size: 2rem;
-}
-
-p {
-    font-size: 1.2rem;
-    color: #555; /* Gray for text */
-}
-
-/* Style the large image */
-.large-image {
-    width: 400px; /* Adjust the size as needed */
-    height: auto;
-    display: block;
-    margin: 20px auto; /* Center the image */
-    border: 5px solid #0277BD; /* Add a border for styling */
-    border-radius: 10px; /* Optional: Add rounded corners */
-}
-
 /* Chatbot container styling */
 .chatbot-container {
-    margin-top: 50px;
+    margin: 40px auto; /* Center the container */
+    max-width: 600px; /* Set a maximum width */
+    padding: 20px;
+    background-color: #FFFFFF; /* White background for the chat section */
+    border: 1px solid #039BE5; /* Border matching the header color */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
 }
 
+/* Chatbox styling */
 #chatbox {
-    background-color: #FFFFFF;
-    border: 1px solid #039BE5;
-    border-radius: 10px;
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 20px;
-    height: 300px;
-    overflow-y: auto;
+    height: 300px; /* Set fixed height for chatbox */
+    overflow-y: auto; /* Enable vertical scrolling */
 }
 
 #messages {
-    height: 100%;
-    overflow-y: auto;
+    margin: 0; /* Reset margin */
+    padding: 0; /* Reset padding */
 }
 
 #messages p {
@@ -84,22 +59,26 @@ p {
     margin: 5px 0;
 }
 
+/* User input field and button styling */
 #user-input {
-    width: 75%;
+    width: 75%; /* Width for input */
     padding: 10px;
     font-size: 1rem;
+    border: 1px solid #039BE5; /* Border color matching the theme */
+    border-radius: 5px; /* Rounded corners */
+    margin-right: 5px; /* Space between input and button */
 }
 
 button {
-    background-color: #039BE5;
-    color: white;
+    background-color: #039BE5; /* Button background color */
+    color: white; /* Text color */
     padding: 10px 15px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
     font-size: 1rem;
 }
 
 button:hover {
-    background-color: #0277BD;
+    background-color: #0277BD; /* Darker shade on hover */
 }

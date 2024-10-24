@@ -1,5 +1,7 @@
 # Chatbot-with-Deep-Learning
 
+[![Demo Video](https://github.com/Sumbati10/Chatbot-with-Deep-Learning/blob/main/Recording%202024-10-24%20205542.gif)
+
 ## Chatbot Deep Learning Interface
 
 This project is a simple web-based chatbot powered by deep learning, designed to interact with users and provide responses based on user inputs. The backend is built with Flask, and the deep learning model is implemented using TensorFlow and Keras.
@@ -49,6 +51,9 @@ python.py
 
 
 The application will start on http://127.0.0.1:5000/. Open this URL in your web browser to access the chatbot interface.
+
+<img width="946" alt="image" src="https://github.com/user-attachments/assets/08a1964e-91f9-4e24-82e4-ad76f16212f4">
+
 # Usage
 Type your message in the input field and click "Send" or press Enter.
 The chatbot will respond based on the trained deep learning model.

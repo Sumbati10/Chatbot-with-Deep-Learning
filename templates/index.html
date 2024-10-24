@@ -3,30 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ChitChat</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <title>Chatbot Deep Learning Interface</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <!-- Optional: Add a favicon -->
+    <link rel="icon" href="{{ url_for('static', filename='images/lindah.jpg') }}">
 </head>
 <body>
-    <div class="chat-container">
-        <h1>ChitChat Bot</h1>
-        <div id="chat-box"></div>
-        <input type="text" id="user-input" placeholder="Type your message here..." />
-        <button onclick="sendMessage()">Send</button>
-    </div>
+    <header>
+        <!-- Adding a logo at the top -->
+        <div class="logo-container">
+            <img src="{{ url_for('static', filename='images/lindah.jpg') }}" alt="Logo" class="logo">
+            <h1>Chatbot with Deep Learning</h1>
+        </div>
+    </header>
 
-    <script>
-        function sendMessage() {
-            var userInput = document.getElementById("user-input").value;
-            var chatBox = document.getElementById("chat-box");
-            chatBox.innerHTML += "<div>User: " + userInput + "</div>";
-
-            fetch(`/get?msg=${userInput}`)
-                .then(response => response.text())
-                .then(data => {
-                    chatBox.innerHTML += "<div>ChatBot: " + data + "</div>";
-                    document.getElementById("user-input").value = ""; // Clear input
-                });
-        }
-    </script>
+    <main>
+        <!-- Main content with image and introduction -->
+        <section>
+            <h2>Welcome to Our AI-Powered Chatbot Interface</h2>
+            <p>Interact with our advanced chatbot to explore deep learning capabilities!</p>
+            <img src="{{ url_for('static', filename='images/lindah.jpg') }}" alt="Image of Lindah" class="large-image">
+        </section>
+    </main>
 </body>
 </html>

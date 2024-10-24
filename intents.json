@@ -1,0 +1,30 @@
+{
+    "intents": [
+      {
+        "tag": "greeting",
+        "patterns": ["Hi", "Hey", "Is anyone there?", "Hello", "Hay"],
+        "responses": ["Hello!", "Hi!", "Hi there!"]
+      },
+      {
+        "tag": "goodbye",
+        "patterns": ["Bye", "See you later", "Goodbye"],
+        "responses": ["See you later!", "Have a nice day!", "Bye! Come back again!"]
+      },
+      {
+        "tag": "thanks",
+        "patterns": ["Thanks", "Thank you", "That's helpful", "Thanks for the help"],
+        "responses": ["Happy to help!", "Any time!", "My pleasure!"]
+      },
+      {
+        "tag": "about",
+        "patterns": ["Who are you?", "What are you?", "Who you are?"],
+        "responses": ["I'm Joana, your bot assistant!", "I'm Joana, an Artificial Intelligent bot!"]
+      },
+      {
+        "tag": "name",
+        "patterns": ["What is your name?", "What should I call you?", "What's your name?"],
+        "responses": ["You can call me Joana.", "I'm Joana!", "Just call me Joana."]
+      }
+    ]
+  }
+  
